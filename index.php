@@ -4,6 +4,7 @@
 	<div class="topics">
 		<ul>
 			<li><a href="username.php" target="_blank">01. AJAX:- Check Username Availability</a></li>
+			<li><a href="TextBox.php" target="_blank">02. AJAX:- Autocomplete TextBox</a></li>
 		</ul>
 	</div>
 </div>

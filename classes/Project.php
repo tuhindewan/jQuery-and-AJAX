@@ -9,20 +9,21 @@ class Project{
 	}
 
 
-	public function userCheck($data){
-		$query = "SELECT * FROM tbl_users WHERE username = '$data'";
-		$getuser = $this->db->select($query);
 
-		if ($getuser=='') {
-			echo "<span class='error'>Please Enter Username.</span>";
-			exit();
-		}elseif ($getuser) {
-			echo "<span class='error'><b>$username<\b> Not Available.</span>";
-			exit();
+	public function autocomplete($skill){
+		$query = "SELECT * FROM tbl_skills WHERE skill LIKE '%$skill%'";
+		$getSkill = $this->db->select($query);
+		$result= "";
+		$result.="<div class='skill'><ul>";
+		if ($getSkill) {
+			while ($data = $getSkill->fetch_assoc()) {
+				$result.= "<li>".$data['skill']."</li>";
+			}
 		}else{
-			echo "<span class='success'><b>$username<\b> is Available.</span>";
-			exit();
+			$result.= "<li>No Result Found</li>";
 		}
+		$result.="</ul></div>";
+		echo $result;
 	}
 
 	
